@@ -7,16 +7,17 @@ To use enum tools all you need to do is use the __enum_tools.hpp__ header. But t
 To use the header first define your enum with a preprocessing macro *signature*. For example the following are some example of signatures (note there is only one comma)
 
 ```
-#define my_signature_1 \
-enum_class(A, \
-    enum_plain(x) \
-    enum_value(y, 5) \
+#define my_signature_1      \
+enum_class(A,               \
+    enum_plain(x)           \
+    enum_value(y, 5)        \
 )
 ```
 This is a signature for the following enum:
 ```
 enum class A {
-    x, y = 5
+    x, 
+    y = 5
 }
 ```
 For a enum that is based on a type you can use *enum_class_with_type()* (see the example code for details)
