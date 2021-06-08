@@ -1,9 +1,9 @@
 #include <vector>
 
 #ifdef GENERATE_DECLARATION_FOR
-#define SIGNATURE GENERATE_DECLARATION_FOR
+#define __SIGNATURE GENERATE_DECLARATION_FOR
 
-#define IMPL_DECLARATION(name, ...) \
+#define __IMPL_DECLARATION(name, ...) \
 { \
     __VA_ARGS__ \
 }; \
@@ -14,10 +14,10 @@ template<typename T> \
 int enumCount();
 
 #define ENUM_CLASS(name, ...) \
-enum class name IMPL_DECLARATION(name, __VA_ARGS__)
+enum class name __IMPL_DECLARATION(name, __VA_ARGS__)
 
 #define ENUM_CLASS_WITH_TYPE(name, type, ...) \
-enum class name : type IMPL_DECLARATION(name, __VA_ARGS__)
+enum class name : type __IMPL_DECLARATION(name, __VA_ARGS__)
 
 #define ENUM_PLAIN(name) \
 name,
@@ -25,21 +25,21 @@ name,
 #define ENUM_VALUE(name, value) \
 name = value,
 
-SIGNATURE
+__SIGNATURE
 
-#undef IMPL_DECLARATION
+#undef __IMPL_DECLARATION
 #undef ENUM_CLASS
 #undef ENUM_CLASS_WITH_TYPE
 #undef ENUM_PLAIN
 #undef ENUM_VALUE
 
-#undef SIGNATURE
+#undef __SIGNATURE
 #undef GENERATE_DECLARATION_FOR
 #endif
 
 
 #ifdef GENERATE_DEFINITION_FOR
-#define SIGNATURE GENERATE_DEFINITION_FOR
+#define __SIGNATURE GENERATE_DEFINITION_FOR
 
 #define ENUM_CLASS_WITH_TYPE(name, type, ...) \
 ENUM_CLASS(name, __VA_ARGS__)
@@ -58,10 +58,10 @@ char const * enumString(name e){ \
 }
 
 #define ENUM_PLAIN(name) \
-case enumtype :: name: \
+case enumtype :: name : \
     return #name ; \
 
-SIGNATURE
+__SIGNATURE
 
 #undef ENUM_CLASS
 #undef ENUM_PLAIN
@@ -78,7 +78,7 @@ std::vector<name> const enumValues<name>() { \
 #define ENUM_PLAIN(name) \
 enumtype :: name ,
 
-SIGNATURE
+__SIGNATURE
 
 #undef ENUM_CLASS
 #undef ENUM_PLAIN
@@ -92,7 +92,7 @@ int enumCount<name>() { \
 #define ENUM_PLAIN(name)  \
 + 1
 
-SIGNATURE
+__SIGNATURE
 
 #undef ENUM_CLASS
 #undef ENUM_PLAIN
@@ -100,6 +100,6 @@ SIGNATURE
 #undef ENUM_CLASS_WITH_TYPE
 #undef ENUM_VALUE
 
-#undef SIGNATURE
+#undef __SIGNATURE
 #undef GENERATE_DEFINITION_FOR
 #endif
