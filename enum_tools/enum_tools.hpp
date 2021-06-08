@@ -1,5 +1,3 @@
-#include <vector>
-
 #ifdef GENERATE_DECLARATION_FOR
 #define __SIGNATURE GENERATE_DECLARATION_FOR
 

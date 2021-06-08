@@ -4,7 +4,7 @@ Enum tools is a header based system to get some useful functions for enum classe
 #### Usage
 To use enum tools all you need to do is use the __enum_tools.hpp__ header. But this is not a header in a traditional sense. While traditional headers are intended to be actually included only once, enum_tools.hpp is intended to be included multiple times. This is because enum_tools.hpp uses preprocessing macros to generate the enum functions.
 
-To use the header first define your enum with a preprocessing macro *signature*. For example the following are some example of signatures (note there is only one comma)
+To use the header include __\<vector\>__ and define your enum with a preprocessing macro *signature*. For example the following are some example of signatures (note there is only one comma)
 
 ```
 #define my_signature_1      \
@@ -39,6 +39,9 @@ The header gives 3 function:
 1. enumString(e) : function that stringifies the input enum value
 2. enumValues\<enum type\>() : function that returns a const vector of all enum values of a type
 3. enumCount\<enum type\>() : function that returns count of enum values of a type
+
+#### Disadvantage
+currently you are forced to include \<vector\> in your code. This might be changed in the future.
 
 #### Feedback
 Any feedback is appreciated.

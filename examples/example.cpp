@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 // defining signature for enum day
 #define DAY_SIGNATURE \
