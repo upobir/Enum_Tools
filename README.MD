@@ -8,9 +8,9 @@ To use the header include __\<vector\>__ and define your enum with a preprocessi
 
 ```
 #define my_signature_1      \
-enum_class(A,               \
-    enum_plain(x)           \
-    enum_value(y, 5)        \
+ENUM_CLASS(A,               \
+    ENUM_PLAIN(x)           \
+    ENUM_VALUE(y, 5)        \
 )
 ```
 This is a signature for the following enum:
@@ -20,7 +20,7 @@ enum class A {
     y = 5
 }
 ```
-For a enum that is based on a type you can use *enum_class_with_type()* (see the example code for details)
+For a enum that is based on a type you can use *ENUM_CLASS_WITH_TYPE()* (see the example code for details)
 
 After defining this signature you have to use the following code for generating the enum and the function declarations:
 ```
